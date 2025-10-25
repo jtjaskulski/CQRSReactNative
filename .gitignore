@@ -13,6 +13,8 @@
 ############################
 ## Visual Studio files
 ############################
+/SolutionOrdersReact/.vs/
+/SolutionOrdersReact/.vs/
 .vs/
 .vscode/
 *.suo
