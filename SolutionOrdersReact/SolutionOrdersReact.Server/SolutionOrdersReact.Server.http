@@ -1,0 +1,6 @@
+@SolutionOrdersReact.Server_HostAddress = http://localhost:5225
+
+GET {{SolutionOrdersReact.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
