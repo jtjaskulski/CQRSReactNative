@@ -115,3 +115,5 @@ appsettings.*.json
 *.zip
 
 # End of .gitignore
+/SolutionOrdersReact/.vs/SolutionOrdersReact/v17/.suo
+/SolutionOrdersReact/.vs/SolutionOrdersReact/v17/DocumentLayout.json
