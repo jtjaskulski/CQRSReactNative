@@ -1,7 +1,52 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\jtjas\\Desktop\\WSB\\Mobilne\\Wyklad1\\SolutionOrdersReact\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\jtjas\\Desktop\\WSB\\Mobilne\\Git\\CQRSReactNative\\SolutionOrdersReact\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{87FE9C45-4DC7-4539-9ED4-5163596B6E43}|SolutionOrdersReact.Server\\SolutionOrdersReact.Server.csproj|c:\\users\\jtjas\\desktop\\wsb\\mobilne\\git\\cqrsreactnative\\solutionordersreact\\solutionordersreact.server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{87FE9C45-4DC7-4539-9ED4-5163596B6E43}|SolutionOrdersReact.Server\\SolutionOrdersReact.Server.csproj|solutionrelative:solutionordersreact.server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87FE9C45-4DC7-4539-9ED4-5163596B6E43}|SolutionOrdersReact.Server\\SolutionOrdersReact.Server.csproj|c:\\users\\jtjas\\desktop\\wsb\\mobilne\\git\\cqrsreactnative\\solutionordersreact\\solutionordersreact.server\\migrations\\20251025152221_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87FE9C45-4DC7-4539-9ED4-5163596B6E43}|SolutionOrdersReact.Server\\SolutionOrdersReact.Server.csproj|solutionrelative:solutionordersreact.server\\migrations\\20251025152221_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87FE9C45-4DC7-4539-9ED4-5163596B6E43}|SolutionOrdersReact.Server\\SolutionOrdersReact.Server.csproj|c:\\users\\jtjas\\desktop\\wsb\\mobilne\\git\\cqrsreactnative\\solutionordersreact\\solutionordersreact.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87FE9C45-4DC7-4539-9ED4-5163596B6E43}|SolutionOrdersReact.Server\\SolutionOrdersReact.Server.csproj|solutionrelative:solutionordersreact.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87FE9C45-4DC7-4539-9ED4-5163596B6E43}|SolutionOrdersReact.Server\\SolutionOrdersReact.Server.csproj|c:\\users\\jtjas\\desktop\\wsb\\mobilne\\git\\cqrsreactnative\\solutionordersreact\\solutionordersreact.server\\models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87FE9C45-4DC7-4539-9ED4-5163596B6E43}|SolutionOrdersReact.Server\\SolutionOrdersReact.Server.csproj|solutionrelative:solutionordersreact.server\\models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87FE9C45-4DC7-4539-9ED4-5163596B6E43}|SolutionOrdersReact.Server\\SolutionOrdersReact.Server.csproj|c:\\users\\jtjas\\desktop\\wsb\\mobilne\\git\\cqrsreactnative\\solutionordersreact\\solutionordersreact.server\\models\\unitofmeasurement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87FE9C45-4DC7-4539-9ED4-5163596B6E43}|SolutionOrdersReact.Server\\SolutionOrdersReact.Server.csproj|solutionrelative:solutionordersreact.server\\models\\unitofmeasurement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87FE9C45-4DC7-4539-9ED4-5163596B6E43}|SolutionOrdersReact.Server\\SolutionOrdersReact.Server.csproj|c:\\users\\jtjas\\desktop\\wsb\\mobilne\\git\\cqrsreactnative\\solutionordersreact\\solutionordersreact.server\\models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87FE9C45-4DC7-4539-9ED4-5163596B6E43}|SolutionOrdersReact.Server\\SolutionOrdersReact.Server.csproj|solutionrelative:solutionordersreact.server\\models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87FE9C45-4DC7-4539-9ED4-5163596B6E43}|SolutionOrdersReact.Server\\SolutionOrdersReact.Server.csproj|c:\\users\\jtjas\\desktop\\wsb\\mobilne\\git\\cqrsreactnative\\solutionordersreact\\solutionordersreact.server\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87FE9C45-4DC7-4539-9ED4-5163596B6E43}|SolutionOrdersReact.Server\\SolutionOrdersReact.Server.csproj|solutionrelative:solutionordersreact.server\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87FE9C45-4DC7-4539-9ED4-5163596B6E43}|SolutionOrdersReact.Server\\SolutionOrdersReact.Server.csproj|c:\\users\\jtjas\\desktop\\wsb\\mobilne\\git\\cqrsreactnative\\solutionordersreact\\solutionordersreact.server\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87FE9C45-4DC7-4539-9ED4-5163596B6E43}|SolutionOrdersReact.Server\\SolutionOrdersReact.Server.csproj|solutionrelative:solutionordersreact.server\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87FE9C45-4DC7-4539-9ED4-5163596B6E43}|SolutionOrdersReact.Server\\SolutionOrdersReact.Server.csproj|c:\\users\\jtjas\\desktop\\wsb\\mobilne\\git\\cqrsreactnative\\solutionordersreact\\solutionordersreact.server\\models\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87FE9C45-4DC7-4539-9ED4-5163596B6E43}|SolutionOrdersReact.Server\\SolutionOrdersReact.Server.csproj|solutionrelative:solutionordersreact.server\\models\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87FE9C45-4DC7-4539-9ED4-5163596B6E43}|SolutionOrdersReact.Server\\SolutionOrdersReact.Server.csproj|c:\\users\\jtjas\\desktop\\wsb\\mobilne\\git\\cqrsreactnative\\solutionordersreact\\solutionordersreact.server\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87FE9C45-4DC7-4539-9ED4-5163596B6E43}|SolutionOrdersReact.Server\\SolutionOrdersReact.Server.csproj|solutionrelative:solutionordersreact.server\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87FE9C45-4DC7-4539-9ED4-5163596B6E43}|SolutionOrdersReact.Server\\SolutionOrdersReact.Server.csproj|c:\\users\\jtjas\\desktop\\wsb\\mobilne\\git\\cqrsreactnative\\solutionordersreact\\solutionordersreact.server\\models\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87FE9C45-4DC7-4539-9ED4-5163596B6E43}|SolutionOrdersReact.Server\\SolutionOrdersReact.Server.csproj|solutionrelative:solutionordersreact.server\\models\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +54,150 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "20251025152221_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\jtjas\\Desktop\\WSB\\Mobilne\\Git\\CQRSReactNative\\SolutionOrdersReact\\SolutionOrdersReact.Server\\Migrations\\20251025152221_InitialCreate.cs",
+              "RelativeDocumentMoniker": "SolutionOrdersReact.Server\\Migrations\\20251025152221_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\jtjas\\Desktop\\WSB\\Mobilne\\Git\\CQRSReactNative\\SolutionOrdersReact\\SolutionOrdersReact.Server\\Migrations\\20251025152221_InitialCreate.cs",
+              "RelativeToolTip": "SolutionOrdersReact.Server\\Migrations\\20251025152221_InitialCreate.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAgwG0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T15:22:21.303Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\jtjas\\Desktop\\WSB\\Mobilne\\Git\\CQRSReactNative\\SolutionOrdersReact\\SolutionOrdersReact.Server\\Program.cs",
+              "RelativeDocumentMoniker": "SolutionOrdersReact.Server\\Program.cs",
+              "ToolTip": "C:\\Users\\jtjas\\Desktop\\WSB\\Mobilne\\Git\\CQRSReactNative\\SolutionOrdersReact\\SolutionOrdersReact.Server\\Program.cs",
+              "RelativeToolTip": "SolutionOrdersReact.Server\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T15:19:20.114Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\jtjas\\Desktop\\WSB\\Mobilne\\Git\\CQRSReactNative\\SolutionOrdersReact\\SolutionOrdersReact.Server\\appsettings.json",
+              "RelativeDocumentMoniker": "SolutionOrdersReact.Server\\appsettings.json",
+              "ToolTip": "C:\\Users\\jtjas\\Desktop\\WSB\\Mobilne\\Git\\CQRSReactNative\\SolutionOrdersReact\\SolutionOrdersReact.Server\\appsettings.json",
+              "RelativeToolTip": "SolutionOrdersReact.Server\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAACJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-25T15:15:56.439Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\jtjas\\Desktop\\WSB\\Mobilne\\Git\\CQRSReactNative\\SolutionOrdersReact\\SolutionOrdersReact.Server\\Models\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "SolutionOrdersReact.Server\\Models\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\jtjas\\Desktop\\WSB\\Mobilne\\Git\\CQRSReactNative\\SolutionOrdersReact\\SolutionOrdersReact.Server\\Models\\ApplicationDbContext.cs",
+              "RelativeToolTip": "SolutionOrdersReact.Server\\Models\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAA4wCsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T15:07:59.139Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "OrderItem.cs",
+              "DocumentMoniker": "C:\\Users\\jtjas\\Desktop\\WSB\\Mobilne\\Git\\CQRSReactNative\\SolutionOrdersReact\\SolutionOrdersReact.Server\\Models\\OrderItem.cs",
+              "RelativeDocumentMoniker": "SolutionOrdersReact.Server\\Models\\OrderItem.cs",
+              "ToolTip": "C:\\Users\\jtjas\\Desktop\\WSB\\Mobilne\\Git\\CQRSReactNative\\SolutionOrdersReact\\SolutionOrdersReact.Server\\Models\\OrderItem.cs",
+              "RelativeToolTip": "SolutionOrdersReact.Server\\Models\\OrderItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T15:06:29.368Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Item.cs",
+              "DocumentMoniker": "C:\\Users\\jtjas\\Desktop\\WSB\\Mobilne\\Git\\CQRSReactNative\\SolutionOrdersReact\\SolutionOrdersReact.Server\\Models\\Item.cs",
+              "RelativeDocumentMoniker": "SolutionOrdersReact.Server\\Models\\Item.cs",
+              "ToolTip": "C:\\Users\\jtjas\\Desktop\\WSB\\Mobilne\\Git\\CQRSReactNative\\SolutionOrdersReact\\SolutionOrdersReact.Server\\Models\\Item.cs",
+              "RelativeToolTip": "SolutionOrdersReact.Server\\Models\\Item.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T15:06:01.342Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\jtjas\\Desktop\\WSB\\Mobilne\\Git\\CQRSReactNative\\SolutionOrdersReact\\SolutionOrdersReact.Server\\Models\\Order.cs",
+              "RelativeDocumentMoniker": "SolutionOrdersReact.Server\\Models\\Order.cs",
+              "ToolTip": "C:\\Users\\jtjas\\Desktop\\WSB\\Mobilne\\Git\\CQRSReactNative\\SolutionOrdersReact\\SolutionOrdersReact.Server\\Models\\Order.cs",
+              "RelativeToolTip": "SolutionOrdersReact.Server\\Models\\Order.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T15:05:59.81Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Worker.cs",
+              "DocumentMoniker": "C:\\Users\\jtjas\\Desktop\\WSB\\Mobilne\\Git\\CQRSReactNative\\SolutionOrdersReact\\SolutionOrdersReact.Server\\Models\\Worker.cs",
+              "RelativeDocumentMoniker": "SolutionOrdersReact.Server\\Models\\Worker.cs",
+              "ToolTip": "C:\\Users\\jtjas\\Desktop\\WSB\\Mobilne\\Git\\CQRSReactNative\\SolutionOrdersReact\\SolutionOrdersReact.Server\\Models\\Worker.cs",
+              "RelativeToolTip": "SolutionOrdersReact.Server\\Models\\Worker.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T15:05:36.219Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Client.cs",
+              "DocumentMoniker": "C:\\Users\\jtjas\\Desktop\\WSB\\Mobilne\\Git\\CQRSReactNative\\SolutionOrdersReact\\SolutionOrdersReact.Server\\Models\\Client.cs",
+              "RelativeDocumentMoniker": "SolutionOrdersReact.Server\\Models\\Client.cs",
+              "ToolTip": "C:\\Users\\jtjas\\Desktop\\WSB\\Mobilne\\Git\\CQRSReactNative\\SolutionOrdersReact\\SolutionOrdersReact.Server\\Models\\Client.cs",
+              "RelativeToolTip": "SolutionOrdersReact.Server\\Models\\Client.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T15:05:10.49Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\jtjas\\Desktop\\WSB\\Mobilne\\Git\\CQRSReactNative\\SolutionOrdersReact\\SolutionOrdersReact.Server\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "SolutionOrdersReact.Server\\Models\\Category.cs",
+              "ToolTip": "C:\\Users\\jtjas\\Desktop\\WSB\\Mobilne\\Git\\CQRSReactNative\\SolutionOrdersReact\\SolutionOrdersReact.Server\\Models\\Category.cs",
+              "RelativeToolTip": "SolutionOrdersReact.Server\\Models\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T15:04:25.817Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UnitOfMeasurement.cs",
+              "DocumentMoniker": "C:\\Users\\jtjas\\Desktop\\WSB\\Mobilne\\Git\\CQRSReactNative\\SolutionOrdersReact\\SolutionOrdersReact.Server\\Models\\UnitOfMeasurement.cs",
+              "RelativeDocumentMoniker": "SolutionOrdersReact.Server\\Models\\UnitOfMeasurement.cs",
+              "ToolTip": "C:\\Users\\jtjas\\Desktop\\WSB\\Mobilne\\Git\\CQRSReactNative\\SolutionOrdersReact\\SolutionOrdersReact.Server\\Models\\UnitOfMeasurement.cs",
+              "RelativeToolTip": "SolutionOrdersReact.Server\\Models\\UnitOfMeasurement.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T15:03:51.115Z",
+              "EditorCaption": ""
             }
           ]
         }
