@@ -1223,3 +1223,389 @@ docker-compose up --build
 ---
 
 **Powodzenia w nauce!** 🚀
+
+Rozdział projektu SolutionOrdersReact – React Native Mobile (pnpm, CLI, native API)
+SolutionOrdersMobile
+Mobilny klient (React Native CLI, TypeScript, pnpm) do rozwiązania SolutionOrdersReact (.NET API)
+
+1. Inicjalizacja projektu
+bash
+# [1] Wejście do katalogu repo
+cd CQRSReactNativetest/SolutionOrdersReact
+
+# [2] Nowy projekt:
+npx @react-native-community/cli init SolutionOrdersMobile
+
+# [3] Przejdź do katalogu i zainstaluj zależności przez pnpm
+cd SolutionOrdersMobile
+pnpm install
+
+# [4] (Monorepo, opcjonalnie) Zmień .npmrc
+echo "node-linker=hoisted" > .npmrc
+
+# [5] Dodaj SolutionOrdersMobile do pnpm-workspace.yaml w głównym repo
+# packages:
+#   - 'SolutionOrdersMobile'
+#   - 'other-projects...'
+2. Uruchamianie projektu na emulatorze (Android/iOS)
+Emulator ANDROID (REKOMENDOWANY dla Windows/Linux/Mac)
+Krok 1:
+
+Zainstaluj najnowszy Android Studio. Otwórz “Device Manager” → ustaw typ Pixel 7 / Pixel 6 z systemem Android 13+.
+
+Krok 2:
+
+Otwórz emulator (“play”), nie zamykaj programu Android Studio.
+
+Krok 3:
+
+W konsoli uruchom:
+
+bash
+pnpm react-native run-android
+Pierwszy build może potrwać do kilku minut!
+
+Jeśli wszystko się powiodło, a aplikacja nie pojawia się automatycznie – znajdź “SolutionOrdersMobile” na liście aplikacji w urządzeniu lub wykonaj adb reverse tcp:5000 tcp:5000 aby API .NET backend działało z mobilki.
+
+Emulator iOS (Tylko Mac):
+Krok 1:
+
+Xcode → “Devices and Simulators” → dodaj iPhone 15 (lub nowszy).
+
+Krok 2:
+bash pnpm react-native run-ios
+
+Domyślnie uruchomi się symulator iPhone oraz otworzy aplikację.
+
+Najczęstsze problemy:
+Jeśli Port 8081 error/Metro: pnpm start --reset-cache
+
+Jeżeli API nie odpowiada: sprawdź, czy backend .NET działa na tym samym porcie i spróbuj IP 10.0.2.2:PORT na Androidzie.
+
+3. Struktura projektu
+text
+SolutionOrdersMobile/
+├── android/
+├── ios/
+├── app.json
+├── src/
+│   ├── api/
+│   │   └── ordersApi.ts
+│   ├── components/
+│   │   └── ItemCard.tsx
+│   ├── context/
+│   │   └── ItemsContext.tsx
+│   ├── screens/
+│   │   ├── ListScreen.tsx
+│   │   ├── DetailsScreen.tsx
+│   │   └── PermissionsExample.tsx
+│   └── App.tsx
+├── package.json
+└── .npmrc
+4. Integracja z API .NET
+src/api/ordersApi.ts:
+
+ts
+import { Platform } from 'react-native';
+const host = Platform.OS === 'android' ? '10.0.2.2' : 'localhost';
+const BASE_URL = `http://${host}:5000/api`;
+
+export async function fetchItems() {
+  const res = await fetch(`${BASE_URL}/items`);
+  return res.json();
+}
+
+export async function addItem(item, token) {
+  return fetch(`${BASE_URL}/items`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+    body: JSON.stringify(item)
+  }).then(r => r.json());
+}
+5. Przykład komponentów i zaawansowany state
+src/components/ItemCard.tsx:
+
+tsx
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+
+export const ItemCard = ({ name, price, categoryName }) => (
+  <View style={styles.wrap}>
+    <Text style={styles.name}>{name}</Text>
+    <Text style={styles.price}>{price} zł</Text>
+    <Text>{categoryName}</Text>
+  </View>
+);
+const styles = StyleSheet.create({
+  wrap: { borderWidth: 1, margin: 8, padding: 16, borderRadius: 8 },
+  name: { fontWeight: 'bold', fontSize: 16 },
+  price: { color: 'green' }
+});
+Context API — nowoczesny state globalny
+src/context/ItemsContext.tsx:
+
+tsx
+import React, { createContext, useContext, useState } from 'react';
+
+type ItemsContextProps = {
+  items: any[];
+  setItems: React.Dispatch<React.SetStateAction<any[]>>;
+};
+export const ItemsContext = createContext<ItemsContextProps>({ items: [], setItems: () => {} });
+
+export const ItemsProvider: React.FC = ({ children }) => {
+  const [items, setItems] = useState<any[]>([]);
+  return (
+    <ItemsContext.Provider value={{ items, setItems }}>
+      {children}
+    </ItemsContext.Provider>
+  );
+};
+export const useItems = () => useContext(ItemsContext);
+Użycie Contextu w komponencie:
+
+tsx
+import { useItems } from '../context/ItemsContext';
+const { items, setItems } = useItems();
+6. Lista produktów z API
+src/screens/ListScreen.tsx:
+
+tsx
+import React, { useEffect } from 'react';
+import { View, FlatList, ActivityIndicator } from 'react-native';
+import { fetchItems } from '../api/ordersApi';
+import { ItemCard } from '../components/ItemCard';
+import { useItems } from '../context/ItemsContext';
+
+export default function ListScreen() {
+  const { items, setItems } = useItems();
+  const [loading, setLoading] = React.useState(true);
+  useEffect(() => {
+    fetchItems().then(setItems).finally(() => setLoading(false));
+  }, []);
+  if (loading) return <ActivityIndicator />;
+  return (
+    <FlatList
+      data={items}
+      renderItem={({ item }) => <ItemCard {...item} />}
+      keyExtractor={item => item.idItem?.toString() ?? Math.random().toString()}
+    />
+  );
+}
+7. Nawigacja
+Instalacja:
+
+bash
+pnpm add @react-navigation/native @react-navigation/native-stack
+pnpm add react-native-screens react-native-safe-area-context
+src/App.tsx:
+
+tsx
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ListScreen from './screens/ListScreen';
+import DetailsScreen from './screens/DetailsScreen';
+import { ItemsProvider } from './context/ItemsContext';
+
+const Stack = createNativeStackNavigator();
+
+export default function App() {
+  return (
+    <ItemsProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Lista" component={ListScreen} />
+          <Stack.Screen name="Szczegóły" component={DetailsScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ItemsProvider>
+  );
+}
+8. Permissions (Przykład)
+src/screens/PermissionsExample.tsx:
+
+tsx
+import React from 'react';
+import { Button, PermissionsAndroid } from 'react-native';
+
+export default function PermissionsExample() {
+  const askCameraPermission = async () => {
+    const granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.CAMERA
+    );
+    alert(granted === PermissionsAndroid.RESULTS.GRANTED ? "Masz dostęp" : "Brak uprawnień");
+  };
+  return <Button title="Poproś o kamerę" onPress={askCameraPermission} />;
+}
+9. Troubleshooting i najczęstsze błędy
+Nie podawaj --template przy CLI ≥0.71+ — TypeScript jest domyślny!
+
+Nazwa projektu tylko alfanumeryczna, bez kropek, myślników, spacji
+
+Na Androidzie do komunikacji z lokalnym API .NET używaj 10.0.2.2 zamiast localhost
+
+Jeśli porty nie działają – sprawdź firewall/emulator
+
+pnpm, CLI i workspace zawsze odpalaj z katalogu projektu mobile
+10. Autoryzacja JWT oraz obsługa relacji 1:N (Order + OrderItems) w React Native
+10.1. Uzyskiwanie i przechowywanie JWT (logowanie użytkownika)
+Rejestracja/logowanie – front React Native (przykład)
+tsx
+const API_URL = `http://${host}:5000/api`;
+
+export async function loginUser(email: string, password: string) {
+  const resp = await fetch(`${API_URL}/auth/login`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password })
+  });
+  if(!resp.ok) throw new Error('Invalid credentials');
+  const data = await resp.json();
+  // { token: "JWT..." }
+  return data.token;
+}
+Zapis tokena np. w state lub secure storage (AsyncStorage):
+
+tsx
+import AsyncStorage from '@react-native-async-storage/async-storage';
+AsyncStorage.setItem('jwt', token);
+// użycie: const token = await AsyncStorage.getItem('jwt');
+10.2. Pobieranie zamówień użytkownika z relacją Order → OrderItem (One-To-Many)
+Endpoint backend (.NET CQRS)
+C# przykładowy handler:
+
+csharp
+public class GetUserOrdersQuery : IRequest<List<OrderDto>> 
+{
+    public string UserId { get; set; }
+}
+public class OrderDto
+{
+    public int IdOrder { get; set; }
+    public DateTime? DataOrder { get; set; }
+    public List<OrderItemDto> Items { get; set; } = new();
+}
+public class OrderItemDto
+{
+    public int IdOrderItem { get; set; }
+    public string? ItemName { get; set; }
+    public decimal? Quantity { get; set; }
+}
+
+// Handler
+public class GetUserOrdersHandler : IRequestHandler<GetUserOrdersQuery, List<OrderDto>>
+{
+    private readonly ApplicationDbContext _ctx;
+    public GetUserOrdersHandler(ApplicationDbContext ctx) => _ctx = ctx;
+    public async Task<List<OrderDto>> Handle(GetUserOrdersQuery request, CancellationToken ct)
+    {
+        return await _ctx.Orders
+            .Where(x => x.UserId == request.UserId)
+            .Include(x => x.OrderItems)
+                .ThenInclude(oi => oi.Item)
+            .Select(o => new OrderDto
+            {
+                IdOrder = o.IdOrder,
+                DataOrder = o.DataOrder,
+                Items = o.OrderItems.Select(oi => new OrderItemDto {
+                    IdOrderItem = oi.IdOrderItem,
+                    ItemName = oi.Item.Name,
+                    Quantity = oi.Quantity
+                }).ToList()
+            })
+            .ToListAsync(ct);
+    }
+}
+Kontroler API (.NET)
+csharp
+[Authorize]
+[HttpGet("api/orders/my")]
+public async Task<IActionResult> GetMyOrders()
+{
+    var userId = User.FindFirst("sub")?.Value;
+    var query = new GetUserOrdersQuery { UserId = userId };
+    var result = await _mediator.Send(query);
+    return Ok(result);
+}
+10.3. Pobieranie relacji po stronie mobilnej React Native (fetch z tokenem JWT)
+src/api/ordersApi.ts:
+
+tsx
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+export async function fetchUserOrders() {
+  const token = await AsyncStorage.getItem('jwt');
+  const resp = await fetch(`${BASE_URL}/orders/my`, {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  });
+  if(!resp.ok) throw new Error(await resp.text());
+  return resp.json();
+}
+src/screens/OrdersWithItemsScreen.tsx:
+
+tsx
+import React, { useEffect, useState } from 'react';
+import { View, Text, FlatList } from 'react-native';
+import { fetchUserOrders } from '../api/ordersApi';
+
+export default function OrdersWithItemsScreen() {
+  const [orders, setOrders] = useState([]);
+  const [error, setError] = useState('');
+  useEffect(() => {
+    fetchUserOrders()
+      .then(setOrders)
+      .catch(e => setError(e.message));
+  }, []);
+  if (error) return <Text>Błąd: {error}</Text>;
+  if (orders.length === 0) return <Text>Brak zamówień</Text>;
+  return (
+    <FlatList
+      data={orders}
+      keyExtractor={order => order.idOrder.toString()}
+      renderItem={({ item: order }) => (
+        <View style={{ margin: 8, borderWidth: 1, borderRadius: 8, padding: 8 }}>
+          <Text>Data: {order.dataOrder}</Text>
+          <Text>Pozycje:</Text>
+          {order.items.map(oi => (
+            <Text key={oi.idOrderItem}>• {oi.itemName} x {oi.quantity}</Text>
+          ))}
+        </View>
+      )}
+    />
+  );
+}
+10.4. Bonus: wysyłanie zamówienia (POST z listą produktów)
+src/api/ordersApi.ts
+
+tsx
+export async function placeOrder(items, token) {
+  return fetch(`${BASE_URL}/orders`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+    body: JSON.stringify({
+      // np. tablica produktów:
+      items: items.map(i => ({
+        idItem: i.idItem,
+        quantity: i.qty
+      }))
+    })
+  }).then(r => r.json());
+}
+10.5. Podsumowanie: Key takeaways
+JWT obsługiwany przez Authorization header w każdym fetch do API (AsyncStorage/Context do przechowywania).
+
+Relacje 1:N (Order z OrderItem) pobierane przez CQRS i mapowane do typów DTO.
+
+Komponenty React Native pokazują całą kolekcję (zamówienia i ich elementy) z API.
+
+Kod gotowy do rozbudowy o modyfikację zamówień, rejestrację, obsługę wylogowania, dodatkowe filtry i obsługę błędów.
+
