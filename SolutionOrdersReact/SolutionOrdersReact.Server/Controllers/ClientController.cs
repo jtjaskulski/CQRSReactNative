@@ -6,27 +6,20 @@ namespace SolutionOrdersReact.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ClientController : ControllerBase
+    public class ClientController(ApplicationDbContext context) : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
-
-        public ClientController(ApplicationDbContext context)
-        {
-            _context = context;
-        }
-
         // GET: api/Client
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Client>>> GetClients()
         {
-            return await _context.Clients.ToListAsync();
+            return await context.Clients.ToListAsync();
         }
 
         // GET: api/Client/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Client>> GetClient(int id)
         {
-            var client = await _context.Clients.FindAsync(id);
+            var client = await context.Clients.FindAsync(id);
 
             if (client == null)
             {
@@ -46,11 +39,11 @@ namespace SolutionOrdersReact.Server.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(client).State = EntityState.Modified;
+            context.Entry(client).State = EntityState.Modified;
             
             try
             {
-                await _context.SaveChangesAsync();
+                await context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -72,8 +65,8 @@ namespace SolutionOrdersReact.Server.Controllers
         [HttpPost]
         public async Task<ActionResult<Client>> PostClient(Client client)
         {
-            _context.Clients.Add(client);
-            await _context.SaveChangesAsync();
+            context.Clients.Add(client);
+            await context.SaveChangesAsync();
 
             return CreatedAtAction("GetClient", new { id = client.IdClient }, client);
         }
@@ -82,21 +75,21 @@ namespace SolutionOrdersReact.Server.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteClient(int id)
         {
-            var client = await _context.Clients.FindAsync(id);
+            var client = await context.Clients.FindAsync(id);
             if (client == null)
             {
                 return NotFound();
             }
 
-            _context.Clients.Remove(client);
-            await _context.SaveChangesAsync();
+            context.Clients.Remove(client);
+            await context.SaveChangesAsync();
 
             return NoContent();
         }
 
         private bool ClientExists(int id)
         {
-            return _context.Clients.Any(e => e.IdClient == id);
+            return context.Clients.Any(e => e.IdClient == id);
         }
     }
 }
