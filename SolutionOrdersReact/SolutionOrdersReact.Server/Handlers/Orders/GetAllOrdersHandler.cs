@@ -11,14 +11,14 @@ namespace SolutionOrdersReact.Server.Handlers.Orders
     {
         public async Task<List<OrderDto>> Handle(GetAllOrdersQuery request, CancellationToken cancellationToken)
         {
-            var orders = await context.Orders
+            var orderEntities = await context.Orders
                 .Include(o => o.Client)
                 .Include(o => o.Worker)
                 .Include(o => o.OrderItems)
                 .ThenInclude(oi => oi.Item)
-                .Select(o => o.Adapt<OrderDto>())
                 .ToListAsync(cancellationToken);
 
+            var orders = orderEntities.Adapt<List<OrderDto>>();
             return orders;
         }
     }
