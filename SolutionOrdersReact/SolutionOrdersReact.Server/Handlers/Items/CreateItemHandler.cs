@@ -1,29 +1,20 @@
-﻿using MediatR;
+﻿using Mapster;
+using MediatR;
 using SolutionOrdersReact.Server.Models;
 using SolutionOrdersReact.Server.Requests.Items.Commands;
 
-namespace SolutionOrdersReact.Server.Handlers.Items;
-
-public class CreateItemHandler(ApplicationDbContext context) : IRequestHandler<CreateItemCommand, int>
+namespace SolutionOrdersReact.Server.Handlers.Items
 {
-    public async Task<int> Handle(CreateItemCommand request, CancellationToken cancellationToken)
+    public class CreateItemHandler(ApplicationDbContext context) : IRequestHandler<CreateItemCommand, int>
     {
-        var item = new Item
+        public async Task<int> Handle(CreateItemCommand request, CancellationToken cancellationToken)
         {
-            Name = request.Name,
-            Description = request.Description,
-            IdCategory = request.IdCategory,
-            Price = request.Price,
-            Quantity = request.Quantity,
-            FotoUrl = request.FotoUrl,
-            IdUnitOfMeasurement = request.IdUnitOfMeasurement,
-            Code = request.Code,
-            IsActive = true
-        };
+            var item = request.Adapt<Item>();
 
-        context.Items.Add(item);
-        await context.SaveChangesAsync(cancellationToken);
+            context.Items.Add(item);
+            await context.SaveChangesAsync(cancellationToken);
 
-        return item.IdItem;
+            return item.IdItem;
+        }
     }
 }

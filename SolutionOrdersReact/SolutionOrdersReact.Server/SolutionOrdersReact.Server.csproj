@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Mapster" Version="9.0.0-pre01" />
     <PackageReference Include="MediatR" Version="13.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.SpaProxy">
       <Version>8.*-*</Version>
@@ -36,7 +37,6 @@
 
   <ItemGroup>
     <Folder Include="Requests\Orders\Commands\" />
-    <Folder Include="Requests\Orders\Queries\" />
   </ItemGroup>
 
 </Project>

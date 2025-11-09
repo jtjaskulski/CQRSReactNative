@@ -1,5 +1,5 @@
-
 using Microsoft.EntityFrameworkCore;
+using SolutionOrdersReact.Server.Mappings;
 using SolutionOrdersReact.Server.Models;
 using System.Reflection;
 
@@ -19,6 +19,9 @@ namespace SolutionOrdersReact.Server
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+            // Mapster Configuration
+            ItemMappingConfig.Configure();
+
             // MediatR
             builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly())); 
 
@@ -34,6 +37,7 @@ namespace SolutionOrdersReact.Server
             });
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
             var app = builder.Build();
 
             // Automatyczne zastosowanie migracji przy starcie
