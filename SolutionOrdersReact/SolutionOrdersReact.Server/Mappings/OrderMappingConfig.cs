@@ -26,19 +26,7 @@ namespace SolutionOrdersReact.Server.Mappings
                     Price = oi.Item.Price
                 }).ToList());
 
-            //    // Mapowanie z CreateOrderCommand do Order (zakładając strukturę komendy)
-            //    TypeAdapterConfig<CreateOrderCommand, Order>
-            //        .NewConfig()
-            //        .Map(dest => dest.DataOrder, src => src.DataOrder)
-            //        .Map(dest => dest.IdClient, src => src.IdClient)
-            //        .Map(dest => dest.IdWorker, src => src.IdWorker)
-            //        .Map(dest => dest.Notes, src => src.Notes)
-            //        .Map(dest => dest.DeliveryDate, src => src.DeliveryDate)
-            //        .Ignore(dest => dest.IdOrder) // IdOrder jest generowane przez bazę danych
-            //        .Ignore(dest => dest.Client)
-            //        .Ignore(dest => dest.Worker)
-            //        .Ignore(dest => dest.OrderItems);
-            //}
+            // TODO: Implement mapping from CreateOrderCommand to Order when CreateOrderCommand is introduced.
         }
     }
 }
