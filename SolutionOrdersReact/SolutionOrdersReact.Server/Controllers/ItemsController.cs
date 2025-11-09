@@ -5,6 +5,8 @@ using SolutionOrdersReact.Server.Requests.Items.Queries;
 
 namespace SolutionOrdersReact.Server.Controllers;
 
+[Route("api/[controller]")]
+[ApiController]
 public class ItemsController(IMediator mediator) : ControllerBase
 {
     // GET: api/items

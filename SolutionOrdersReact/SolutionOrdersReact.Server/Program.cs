@@ -20,14 +20,14 @@ namespace SolutionOrdersReact.Server
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             // MediatR
-            builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+            builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly())); 
 
             // CORS
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowReactApp",
                     policy => policy
-                        .WithOrigins("https://localhost:5173") // Port domyœlny Vite dla React
+                        .WithOrigins("https://localhost:5173") // Port domyï¿½lny Vite dla React
                         .AllowAnyMethod()
                         .AllowAnyHeader()
                         .AllowCredentials());
@@ -47,7 +47,7 @@ namespace SolutionOrdersReact.Server
                 catch (Exception ex)
                 {
                     var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
-                    logger.LogError(ex, "B³¹d podczas migracji bazy danych");
+                    logger.LogError(ex, "Bï¿½ï¿½d podczas migracji bazy danych");
                 }
             }
 
