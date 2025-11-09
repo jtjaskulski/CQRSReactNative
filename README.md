@@ -1605,11 +1605,11 @@ JWT obsługiwany przez Authorization header w każdym fetch do API (AsyncStorage
 
 Relacje 1:N (Order z OrderItem) pobierane przez CQRS i mapowane do typów DTO.
 
-Komponenty React Native pokazują całą kolekcję (zamówienia i ich elementy) z API.
+---Komponenty React Native pokazują całą kolekcję (zamówienia i ich elementy) z API.
 
 Kod gotowy do rozbudowy o modyfikację zamówień, rejestrację, obsługę wylogowania, dodatkowe filtry i obsługę błędów.
 
-11. Najczęstsze problemy przy stawianiu React Native + rozwiązania
+Najczęstsze problemy przy stawianiu React Native + rozwiązania
 Problem 1: Brak adb/nie wykrywa emulatora
 Objaw:
 "adb" is not recognized as a command
