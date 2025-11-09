@@ -21,6 +21,7 @@ namespace SolutionOrdersReact.Server
 
             // Mapster Configuration
             ItemMappingConfig.Configure();
+            OrderMappingConfig.Configure();
 
             // MediatR
             builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly())); 
