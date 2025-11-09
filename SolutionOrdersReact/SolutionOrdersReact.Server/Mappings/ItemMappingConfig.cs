@@ -14,7 +14,7 @@ namespace SolutionOrdersReact.Server.Mappings
                 .Map(dest => dest.IdItem, src => src.IdItem)
                 .Map(dest => dest.Name, src => src.Name)
                 .Map(dest => dest.Description, src => src.Description)
-                .Map(dest => dest.CategoryName, src => src.Category.Name)
+                .Map(dest => dest.CategoryName, src => src.Category != null ? src.Category.Name : null)
                 .Map(dest => dest.Price, src => src.Price)
                 .Map(dest => dest.Quantity, src => src.Quantity)
                 .Map(dest => dest.UnitName, src => src.UnitOfMeasurement != null ? src.UnitOfMeasurement.Name : null)
