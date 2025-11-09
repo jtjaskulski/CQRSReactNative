@@ -119,3 +119,6 @@ appsettings.*.json
 # End of .gitignore
 /SolutionOrdersReact/.vs/SolutionOrdersReact/v17/.suo
 /SolutionOrdersReact/.vs/SolutionOrdersReact/v17/DocumentLayout.json
+/SolutionOrdersReact/.vs/SolutionOrdersReact/CopilotIndices/17.14.1290.42047/CodeChunks.db
+/SolutionOrdersReact/.vs/SolutionOrdersReact/DesignTimeBuild/.dtbcache.v2
+/SolutionOrdersReact/.vs/SolutionOrdersReact/v17/DocumentLayout.backup.json

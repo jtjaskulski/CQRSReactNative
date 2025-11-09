@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: testReactDb-sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong@Password123
+      - MSSQL_PID=Developer
+    ports:
+      - "1433:1433"
+    volumes:
+      - testReactDb-data:/var/opt/mssql
+    networks:
+      - dev-network
+
+networks:
+  dev-network:
+    driver: bridge
+
+volumes:
+  testReactDb-data:

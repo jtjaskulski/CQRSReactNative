@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: orders-react-api
+    ports:
+      - "5000:8080"
+      #- "5001:8081"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      #;https://+:8081
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=TestReactDb;User=sa;Password=YourStrong@Password123;TrustServerCertificate=True
+    depends_on:
+      - sqlserver
+    networks:
+      - orders-network
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: orders-sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong@Password123
+      - MSSQL_PID=Developer
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+    networks:
+      - orders-network
+
+networks:
+  orders-network:
+    driver: bridge
+
+volumes:
+  sqlserver-data:
