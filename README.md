@@ -1609,3 +1609,84 @@ Komponenty React Native pokazują całą kolekcję (zamówienia i ich elementy) 
 
 Kod gotowy do rozbudowy o modyfikację zamówień, rejestrację, obsługę wylogowania, dodatkowe filtry i obsługę błędów.
 
+11. Najczęstsze problemy przy stawianiu React Native + rozwiązania
+Problem 1: Brak adb/nie wykrywa emulatora
+Objaw:
+"adb" is not recognized as a command
+
+Rozwiązanie:
+Dodaj do systemowego PATH ścieżkę do platform-tools (np.
+C:\Users\TwojUser\AppData\Local\Android\Sdk\platform-tools)
+
+Problem 2: Brak ustawionego JAVA_HOME
+Objaw:
+ERROR: JAVA_HOME is not set and no 'java' command could be found
+
+Rozwiązanie:
+Ustaw zmienną środowiskową JAVA_HOME na katalog instalacji JDK 11/17 i dodaj do PATH:
+%JAVA_HOME%\bin
+
+Problem 3: Brak/emulator nie uruchamia się, błąd No emulators found
+Objaw:
+No emulators found as output of emulator -list-avds
+
+Rozwiązanie:
+Utwórz nowy emulator w Android Studio Device Manager i uruchom ręcznie przed buildem.
+
+Problem 4: Błąd SDK location not found
+Objaw:
+Define a valid SDK location with ANDROID_HOME or local.properties
+
+Rozwiązanie:
+Dodaj plik android/local.properties o treści:
+sdk.dir=C:/Users/TwojUser/AppData/Local/Android/Sdk
+(lub ustaw ANDROID_HOME w systemie)
+
+Problem 5: Build/Metro, błąd No apps connected
+Objaw:
+No apps connected. Sending reload to all React Native apps failed
+
+Rozwiązanie:
+Uruchom aplikację na emulatorze:
+pnpm react-native run-android
+(Metro samo wykryje aplikację, gdy emulator wystartuje apkę.)
+
+Problem 6: Zbyt długa ścieżka/cmake/ninja na Windows
+Objaw:
+Filename longer than 260 characters
+
+Rozwiązanie:
+Przenieś projekt do katalogu o bardzo krótkiej ścieżce (np. C:\Projekty\Nazwaprojektu), ew. włącz obsługę długich ścieżek w rejestrze Windows.
+
+Problem 7: Brak folderu @react-native/gradle-plugin w node_modules
+Objaw:
+Included build ...gradle-plugin does not exist.
+
+Rozwiązanie:
+Najlepiej przejdź na npm install (zamiast pnpm) – pnpm bywa niekompatybilny z layoutem node_modules React Native CLI. Po npm/yarn problem znika.
+
+Problem 8: Błędy wersji paczek, duża liczba ostrzeżeń, deprecated
+Objaw:
+Duże ilości warningów .deprecated w npm/pnpm install
+
+Rozwiązanie:
+Sprawdź, czy wersje paczek nie są hardkodowane w package.json, zaktualizuj (o ile to nie psuje builda), ignoruj warningi dot. ESLint/rimraf/inflight – problem nie wpływa na uruchamianie RN.
+
+Problem 9: Komunikaty Metro WARN the transform cache was reset
+Rozwiązanie:
+To nie błąd. Jeśli build się powiesi:
+pnpm start --reset-cache lub npx react-native start --reset-cache
+
+Problem 10: Błąd połączenia z backendem .NET (API)
+Objaw:
+Network error, brak połączenia z API z aplikacji mobilnej.
+
+Rozwiązanie:
+Na emulatorze Android używaj IP 10.0.2.2 zamiast localhost. Upewnij się, że backend .NET uruchomiony jest na tym samym porcie, co adres API w kodzie.
+
+Problem 11: Różnica npm/yarn/pnpm – kiedy zmieniać?
+Rozwiązanie:
+Do buildów na Windows z React Native CLI i Android zawsze polecany jest npm lub yarn. pnpm używaj tylko przy stabilnych monorepo lub na Mac/Linux.
+
+Podsumowanie:
+Większość tych problemów to konfiguracja środowiska Windows/Java/Android SDK, layout node_modules i ograniczenie długich ścieżek. Wystarczy pilnować krótkiej ścieżki do projektu, właściwego menedżera pakietów oraz logicznie sprawdzać logi błędów — a React Native CLI działa stabilnie!
