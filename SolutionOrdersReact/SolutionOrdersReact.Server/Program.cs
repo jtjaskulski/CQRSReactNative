@@ -1,5 +1,5 @@
-
 using Microsoft.EntityFrameworkCore;
+using SolutionOrdersReact.Server.Mappings;
 using SolutionOrdersReact.Server.Models;
 using System.Reflection;
 
@@ -19,21 +19,26 @@ namespace SolutionOrdersReact.Server
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+            // Mapster Configuration
+            ItemMappingConfig.Configure();
+            OrderMappingConfig.Configure();
+
             // MediatR
-            builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+            builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly())); 
 
             // CORS
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowReactApp",
                     policy => policy
-                        .WithOrigins("https://localhost:5173") // Port domyœlny Vite dla React
+                        .WithOrigins("https://localhost:5173") // Port domyï¿½lny Vite dla React
                         .AllowAnyMethod()
                         .AllowAnyHeader()
                         .AllowCredentials());
             });
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
             var app = builder.Build();
 
             // Automatyczne zastosowanie migracji przy starcie
@@ -47,7 +52,7 @@ namespace SolutionOrdersReact.Server
                 catch (Exception ex)
                 {
                     var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
-                    logger.LogError(ex, "B³¹d podczas migracji bazy danych");
+                    logger.LogError(ex, "Bï¿½ï¿½d podczas migracji bazy danych");
                 }
             }
 
