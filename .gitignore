@@ -142,8 +142,4 @@ appsettings.*.json
 *.zip
 
 # End of .gitignore
-/SolutionOrdersReact/.vs/ProjectEvaluation/solutionordersreact.metadata.v9.bin
-/SolutionOrdersReact/.vs/ProjectEvaluation/solutionordersreact.projects.v9.bin
-/SolutionOrdersReact/.vs/SolutionOrdersReact/CopilotIndices/17.14.1290.42047/SemanticSymbols.db
-/SolutionOrdersReact/.vs/SolutionOrdersReact/v17/.futdcache.v2
-/SolutionOrdersReact/.vs/ProjectEvaluation/solutionordersreact.strings.v9.bin
+/SolutionOrdersReact/.vs/
