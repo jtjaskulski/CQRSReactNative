@@ -22,19 +22,20 @@ namespace SolutionOrdersReact.Server
             // Mapster Configuration
             ItemMappingConfig.Configure();
             OrderMappingConfig.Configure();
+            CategoryMappingConfig.Configure();
+            UnitOfMeasurementMappingConfig.Configure();
 
             // MediatR
             builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly())); 
 
-            // CORS
+            // CORS - dla development zezwalaj na wszystkie połączenia
             builder.Services.AddCors(options =>
             {
-                options.AddPolicy("AllowReactApp",
+                options.AddPolicy("AllowAll",
                     policy => policy
-                        .WithOrigins("https://localhost:5173") // Port domy�lny Vite dla React
+                        .AllowAnyOrigin()
                         .AllowAnyMethod()
-                        .AllowAnyHeader()
-                        .AllowCredentials());
+                        .AllowAnyHeader());
             });
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -67,7 +68,7 @@ namespace SolutionOrdersReact.Server
             }
 
             app.UseHttpsRedirection();
-            app.UseCors("AllowReactApp");
+            app.UseCors("AllowAll");
             app.UseAuthorization();
             app.MapControllers();
             app.MapFallbackToFile("/index.html");
